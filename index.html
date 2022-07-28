@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css'>
+    <link rel='stylesheet' href='https://cdn.form.io/formiojs/formio.full.min.css'>
+    <script src='https://cdn.form.io/formiojs/formio.full.min.js'></script>
+    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+    <link href="recogito.min.css" rel="stylesheet">
+    <script src="recogito.min.js"></script>
+    <script src="recogito-comments-mention.min.js"></script>
+    <style>
+      html, body {
+        padding:10px 20px;
+        margin:0;
+      }
+
+      h1 {
+        font-size:22px;
+        margin-top:30px;
+        margin-bottom:20px;
+      }
+
+      #outer-container {
+        position:relative;
+      }
+
+      #content {
+        max-width:920px;
+        font-family:'Lato', sans-serif;
+        font-size:17px;
+        line-height:27px;
+      }
+    </style>
+
+</head>
+
+<body>
+    <div ref="component" class="formio-component formio-component-form  formio-component-label-hidden" id="content" style="margin:10px;">
+        <div novalidate="" ref="webform" class="formio-form formio-read-only">
+            <div ref="component"
+                class="form-group has-feedback formio-component formio-component-textfield formio-component-textField  required"
+                id="e8shbe7"> <label for="e8shbe7-textField" class="col-form-label  field-required"> Text Field </label>
+                <div ref="element">
+                    <div ref="value">-</div>
+                </div>
+                <div class="formio-errors invalid-feedback" ref="messageContainer"></div>
+            </div>
+            <div ref="component"
+                class="form-group has-feedback formio-component formio-component-barcode formio-component-textfield"
+                id="en89m7f"> <label for="en89m7f-textfield" class="col-form-label"> Barcode </label>
+                <div ref="element">
+                    <div ref="value">-</div>
+                </div>
+                <div class="formio-errors invalid-feedback" ref="messageContainer"></div>
+            </div>
+            <div ref="component"
+                class="form-group has-feedback formio-component formio-component-signature formio-component-signature  signature-pad"
+                id="ejlde0n"> <label for="ejlde0n-signature" class="col-form-label"> Signature </label>
+                <div ref="element">
+                    <div ref="value" style="visibility: hidden;">-</div> <button ref="clicktoSign"
+                        class="btn btn-sm btn-primary" disabled="" style="visibility: hidden;">Click to Sign</button>
+                    <div ref="padBody" tabindex="0"
+                        style="width: 100%; height: 150px; padding: 0px; margin: 0px; max-width: 100%;"
+                        class="signature-pad-body"> <a ref="refresh"
+                            class="btn btn-sm btn-light signature-pad-refresh disabled"> <i class="fa fa-refresh"></i>
+                        </a> <canvas ref="canvas" height="150px" class="signature-pad-canvas"
+                            style="touch-action: none; display: none;"></canvas> <img ref="signatureImage"
+                            style="width: 100%; display: inherit;"
+                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAACWCAYAAABkW7XSAAAAAXNSR0IArs4c6QAACOBJREFUeF7t3U173LYOhmHN//+n6XrW7pUmdRxbHkEgiM/nbI9EEjfAd+Qu2sfz+c/bwf8QQAABN4GfkfNQ7fYgsG666a1vbhT1ePsCo2Df90VY34LTwAJUD8qbCLQTSBQIfGGFT1eiaTC16FqXDkmnoXtLd8IXbyU5xs8TvgdWojOZe7MgAgj0EOBPwh59pAoERggI/yTk+6v9NExu8eTaiw22MLAUVTEECjRe+SjACHnOQw1teWDVqMezw/f3wvA4joQICY90f7hmvCEPrBkeVOkk0CMjelTh1HKTbQgsE8bARbgzgfhs7S1AYHmLsx8CiQWy//75B1Z2kcTDxNFmCuy4MjvW9OiOf2B5VFV5j6qTVNmcsycUOL8IBFbCVo09EmE9tvXSwt0C63IWLx+QlsRzCCDQVcAtsLoCUldmAX4FT7tTmEUXWIULzny9Qs9GT0P52VwmoAss2do8hQACCJgKEFimnMGL8ZUU3IAB2wfPmDywgg86YBQocawAl0vaenlgfVoRYikxzyGAgJUA/8ZRK0nWQSBQYMoHhPoLK7A3bI0AAkMF5IE1JcKHDgJlrwpwQVYFJe/LA0uyGs8gsFWAUNjKG7i4tLMEVmCT2BoBBO4JEFj3vHgaAQQCBYYHlvRDNLBDbI1AGoH4+zI8sNJMwtyDxN+BufZlKv8zJARWmaZx0F4CVZI61znDAysXR68rQTWLAh+HUzGoilcWD9z/9fDA6k/8d4U+Q+yzy7TeUW+8AIH1sQfc8/iJ5AQIvBAYElgkEblMDnQQGBJYHVpFDQggQGAxA68FPD9OzfcyX5BpCRYgsIIbwPYIXAlMiF1pjcLAki53Rc//jwACcgHu3bvVbwphYMmJWz7J3LRsa8Wipo8igVVxajmzTqDNbW9TyO0+Eli3yXgBgawC/YNsX2D1t8s6tZwLgRcC+y7mvpX/lLMvsBgaBMYK3L26d58fC3sQWHN7/03lXB5GIq9AocB6O463x3E88mJyMgQQ2CtQKLD2QqhW52NExRb5Ei2L1F/fWxhYtHmdutMKunnQvdXJjVpWBYSBtboN7yOAAALrAgTWuiErIICAkwCB5QTNNgsC/C35FW+oCYG1cI94FQEEfAUILF/vvbsN/dXdi8rqmQQIrEzdKH8WErN8C5MXQGA5NGjaNQ6vN/wADkM1dAsCa2jjKRuBigIEVuauZfhSyHCGzD1Ke7aejSOwzAeux6D0qMK8ubEL0hT+bQ2xE8juCCBwR8D8C4sfgTv8589iuG7ICj0F1IHFpeo5EPurYnJuGcP1F5c6sG6h8zACCLgJdM44Aus4js4NdrslbISAgwCB5YAs2SJDaGY4g8SKZ4YInAwkgTWk92PLJIVbtZ7AatVOikGgt0CqwOLHsPewUR0CqwKP5/PHG/8pmlXGCe/zczKhy+Y1Go9Nqi8scywWRACBVgIEVqt2UkxKAeOvjJQ1Oh2KwHKCZhsvAdLBSzpiHwLLTX3mRZpZtdtQjduIwBrX8v0FE1L7jcN2WGnuyru/Cyaw3jtvoBk2RWzcTSDbNGY5D4HVbdL/q8d2vGxXawlOUU4CBJYTNNv0EiDEJf20VyKwJO48g8CigP3VXTxQ0dcJrKKN49gITBQgsCZ2nZoRcBGw/64ksFwaxyYI5BKwjxKf+ggsH2d2QQCBjwLKxCSwmo3R6Rwoh6MUzaYaNy1bijbmsOfyBFZMN9gVAQQUApeBxS+MQpVXEEBgi8BlYG3ZlUURQAABhQCBpUDjFQQuBbL9aZLtPJeA5w8QWEo4XkMAAX8BAsvfnB0RQEAiwH+XUKLEMwggkFUg9guryd/VWZvLuRDoJuAQWDNTaWbV3a6Hbz1WM2O1jm/1st0cAkt2kFdPRTUgat91MVZAwEfA+474B5Z3hT59YxcEEHAQ8A8sh6L2bfErbSdnbrnayx143/R2WPlrYNHgDn2lBgRaCvCF9aKtZHfLmaeowgJ5Aot0KDxGHB0BH4FfgUVY+GizCwIILAnk+cJaKoOXEUBgggCB1aDLfCC/biI+iiFPikZgKXrJKwggECNAYMW4F9816c9vcVWOfy1AYF0bqZ7gSqvYeGmKgPKCEFhTBoQ6vxG4e3PuPi+H37ey/AzZnySwsneI8w0WIMI+N5/AanYdGPHYhk7zv1XvrYfP+0hgxc73pt0NJmPTyVgWgRUBAmtFj3cRQMBVIGFgrX8drK/g2gM2Q6CdwK47mDCw2vWOghBAwEiAwDKCZBkEENgvQGDtN2aHpAK7/mzRlvv632eb7bTaKtfekwcWXmvSvI2Ah0DIPfXbVB5YHtjsgQACuQX8sunU4XVgBR8ud+cGno55yNn0QX3RfWENAso5oUanKtTHQkc1as71MhNNdIF1bckTCCCAgLkAgWVOyoIIILBLoERgVf/0rX7+XcPHugjcFSgRWHeL4nkEEOgpoAgsvhd6jgJVIWAtYJ8VisCyLor1EPgsYD/oGPcQILB69HF4FQTclAEgsKZ0mjoRaCBAYDVoIiUgMEWAwJrSadM6+RPMlJPFxAJfA4tZFOPxYIwAI7ri/lXvO8+MznxhrfSed8cKZLzMqmYUK4TAUnWZlxBAIEKAwIpQr7pnsV/jqsyc+3sBAovpQAABoUD8LxaBJWwVjyGAwLrAauS1D6xVoPUWRa+AQHQH2N9OoH1g2VGxEgIIRAs8ns8fb8fxiD4H+38RyPZllO08jMxEAb6wFF0fe3XHFq4YkqKvZG9xSGBlRyk6axwbgfYCIYHVXtWkQGLdhJFFAgXsZ7huYNlbrDU223mE1RQ9NtUJBbo9Vjew7nai9828q/HpeXAWARdfx18KWDSwaLC0wTyHQCmBi6tdNLBKtYDDIoCAkQCBZQQZswxfmjHu2l3pl1bu//dOAwtWOStWciueRGBVYOsXFpeZf7a9OqC87yhQ4MJuDSxHarZCYJDAp2QpEDRWzekdWIUaWeioVrPHOkIBZuMP1K3AAu7FhIEjvH48hoBe4FZg6bfhTS8BctNLmn0iBAisCHX2RAABlcC/+Tk0/MZ3phIAAAAASUVORK5CYII=">
+                    </div>
+                    <div class="signature-pad-footer"> Sign above </div>
+                </div>
+                <div class="formio-errors invalid-feedback" ref="messageContainer"></div>
+            </div>
+            <div ref="component"
+                class="form-group has-feedback formio-component formio-component-barcodeselect formio-component-selectBarcode"
+                id="ee9rq8j"> <label for="ee9rq8j-selectBarcode" class="col-form-label"> Select Barcode </label>
+                <div ref="value">-</div>
+                <div class="formio-errors invalid-feedback" ref="messageContainer"></div>
+            </div>
+            <div ref="component"
+                class="form-group has-feedback formio-component formio-component-button formio-component-submit  form-group"
+                id="eapxo3">
+                <div class="formio-errors invalid-feedback" ref="messageContainer"></div>
+            </div>
+        </div>
+        <div class="formio-errors invalid-feedback" ref="messageContainer"></div>
+    </div>
+
+</body>
+
+<script type="text/javascript">
+      (function() {
+
+        console.log(recogito.CommentsMention);
+
+        let users = [
+          {
+            id: 'srinidhi@example.com',
+            name: 'Srinidhi'
+          },
+          {
+            id: '12345',
+            name: 'Aparna'
+          }
+        ]
+
+        var r = Recogito.init({
+          content: 'content', 
+          widgets: [
+            { widget: recogito.CommentsMention, userSuggestions: users }
+          ]
+        });
+      })();
+    </script>
+
+</html>
